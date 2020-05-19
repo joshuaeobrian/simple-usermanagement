@@ -1,0 +1,57 @@
+@import "~normalize.css/normalize.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.btn{
+  @mixin button-color($color, $background){
+    cursor: pointer;
+    background: $background;
+    color: $color;
+    &:hover {
+      background: darken($background, 5%);
+      color: darken($color, 5%);
+    }
+    &:disabled {
+      opacity: .5;
+      cursor: not-allowed!important;
+    }
+  }
+  border: none;
+  @include button-color(#FFFFFF,  #106A9A);
+  padding: 5px;
+  margin: 5px 10px;
+  border-radius: 3px;
+  font-weight: bold;
+  &:focus {
+    outline: none;
+  }
+  &-submit {
+    @include button-color(#FFFFFF, #36900e);
+  }
+  &-delete {
+    @include button-color(#FFFFFF, #c10808);
+  }
+  &-transparent {
+    padding: 0;
+    margin: 0;
+    @include button-color(#106A9A, transparent);
+    &.submit{
+      @include button-color(#36900e, transparent);
+    }
+    &.delete{
+      @include button-color(#c10808, transparent);
+    }
+  }
+}
+

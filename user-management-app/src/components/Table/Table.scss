@@ -1,0 +1,22 @@
+.table {
+    margin: 0 10px 0;
+    &_cell {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        overflow: hidden;
+        &:last-child{
+            border-right: none;
+            text-align: center;
+        }
+    }
+    &_row {
+        display: grid;
+        grid-template-columns: .3fr repeat(3, 1fr) .2fr;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    &_header {
+        .table_row {
+            font-weight: bold;
+        }
+    }
+}

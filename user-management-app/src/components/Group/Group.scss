@@ -1,0 +1,49 @@
+.group{
+    &_title{
+        margin: 5px 0 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .btn {
+            margin: 0 5px 5px;
+        }
+        .btn-group{
+            margin: 0 0 0 auto;
+        }
+    }
+    &_members {
+        display: flex;
+        flex-flow: row wrap;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        padding-top: 10px;
+        &_empty {
+            width: 90%;
+            margin: 10px auto;
+            text-align: center;
+            color: rgba(0,0,0,0.3);
+            font-weight: 400;
+        }
+    }
+    &_member {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin: 5px 5px;
+        padding: 5px 10px;
+        border: 1px solid #106A9A;
+        border-radius: 20px;
+        box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.1);
+        &_name {
+            font-weight: bold;
+        }
+        &_delete {
+            cursor: pointer;
+            margin: auto 0 auto 10px;
+            $color: #c10808;
+            color: $color;
+            &:hover {
+                color: darken($color, 5%);
+            }
+        }
+    }
+}

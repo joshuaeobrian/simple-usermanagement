@@ -1,0 +1,19 @@
+.login_form{
+    width: 25%;
+    padding: 15px;
+    border: 1px solid #333333;
+    margin: 10% auto;
+    border-radius: 3px;
+    .login_form_title {
+        margin: 0 5px 5px;
+    }
+    .login_form_content{
+        display: flex;
+        flex-flow: column;
+    }
+    .login_form_error{
+        color: red;
+        margin: 0 10px;
+        font-size: .9em;
+    }
+}

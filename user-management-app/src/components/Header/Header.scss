@@ -1,0 +1,33 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #106A9A;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    color: #FFF;
+    height: 50px;
+    &__title {
+        margin: auto 10px;
+    }
+    &__navigation {
+        display: flex;
+        flex-flow: row;
+        .user__title{
+            margin: auto 10px;
+        }
+        &_link{
+            cursor: pointer;
+            margin: auto 5px;
+            padding: 10px 5px;
+            text-decoration: none;
+            color: #333333;
+            border-bottom: 1px solid transparent;
+            &:hover {
+                border-bottom: 1px solid #333333;
+            }
+        }
+    }
+}

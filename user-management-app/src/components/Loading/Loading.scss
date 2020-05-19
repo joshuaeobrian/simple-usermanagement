@@ -1,0 +1,17 @@
+.loading {
+    width: 200px;
+    margin: 25% auto 0;
+    &_wheel {
+        margin: 10px auto;
+        border: 16px solid #F3F3F3;
+        border-top: 16px solid #3489DB;
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+        animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg)}
+    }
+}
