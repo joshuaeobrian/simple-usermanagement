@@ -20,7 +20,6 @@ const GroupManagement = () => {
     }
     const deleteGroupByID = (id: number) => () => deleteGroup(id);
     const deleteUserFromGroup = (groupID: number) => (user: IUser) => {
-        console.log(groupID, userID, "IDS")
         deleteUser(groupID, user);
     }
     const addGroupUserClick = (id: number) => () => {
@@ -44,7 +43,7 @@ const GroupManagement = () => {
                     <NewGroupForm addGroup={addGroup} validate={validateNewGroupName}/>
                     <div className="group_management_assignment">
                         {groups.map((group: any) => {
-                            return <Group key={group.id}
+                            return <Group key={group.id + "group"}
                                           group={group}
                                           deleteGroup={deleteGroupByID(group.id)}
                                           addUserToGroup={addGroupUserClick}
@@ -59,7 +58,7 @@ const GroupManagement = () => {
                     <select onChange={(e) => setUserID(Number(e.target.value))}>
                         <option>Choose User</option>
                         {availableUsers.map( (user: IUser) =>
-                            <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>
+                            <option key={user.id+ "user-options"} value={user.id}>{user.firstName} {user.lastName}</option>
                         )}
                     </select>
                     <button className="btn" onClick={addUserClick} disabled={userID === -1}>

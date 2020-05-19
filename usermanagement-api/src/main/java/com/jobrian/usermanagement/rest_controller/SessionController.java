@@ -15,19 +15,21 @@ import javax.servlet.http.HttpSession;
 public class SessionController {
     @Autowired
     private UserRepository userRepository;
+
+    /**
+     * Checks that the person that is login in is valid
+     * then returns the user
+     * @param session
+     * @param user
+     * @return
+     */
     @PostMapping
     public Session createSession(HttpSession session, @RequestBody User user){
-        System.out.printf("Session, %s%n", session.getId());
-        Object lookedup = userRepository.findByEmailAndPassword(
+        User lookedup = userRepository.findByEmailAndPassword(
                 user.getEmail(), user.getPassword()
         );
-        System.out.println(lookedup);
+        lookedup.setPassword("");
         session.setAttribute("session-user", lookedup);
         return new Session(session.getId(), lookedup);
     }
-    @DeleteMapping
-    public void endSession(HttpSession session){
-        session.removeAttribute("session-user");
-    }
-
 }

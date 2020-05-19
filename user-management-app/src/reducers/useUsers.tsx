@@ -14,7 +14,7 @@ const initialState =  {
     selectedUserID: -1
 }
 /**
- *
+ * @description UserReducer maintains the application state for the user management page
  * @param state
  * @param action
  */
@@ -43,7 +43,7 @@ const userReducer = (state=initialState, action: {type: string, payload?: any}) 
     }
 }
 /**
- *
+ * Initializes the user reducer state and contains all the actions
  */
 const useUsers = () => {
     const [state, dispatch] = useReducer(userReducer, initialState)

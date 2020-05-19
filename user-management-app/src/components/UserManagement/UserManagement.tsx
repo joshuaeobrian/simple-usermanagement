@@ -51,7 +51,7 @@ const UserManagement = () => {
                             <TBody>
                                 {users.map((user: IUser) => {
                                     return (
-                                        <TRow key={user.id}>
+                                        <TRow key={user.id+ "table-row"}>
                                             <TCell>{user.id}</TCell>
                                             <TCell>{user.firstName}</TCell>
                                             <TCell>{user.lastName}</TCell>

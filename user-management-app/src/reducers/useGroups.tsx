@@ -14,6 +14,11 @@ const initialGroupsState = {
     groups: [] as IUserGroup[],
     availableUsers: [] as IUser[]
 };
+/**
+ * Group Reducers controls the state of GroupManagement
+ * @param state
+ * @param action
+ */
 const groupReducer = (state = initialGroupsState, action: { type: string, payload?: any, filterID?: number}) => {
     switch (action.type) {
         case "INITIALIZE_GROUPS":
@@ -65,7 +70,9 @@ const groupReducer = (state = initialGroupsState, action: { type: string, payloa
             return state;
     }
 }
-
+/**
+ * @description initializes the reducer state and maintains all the actions and calls to the api
+ */
 const useGroups = () => {
     const [state, dispatch] = useReducer(groupReducer, initialGroupsState);
 

@@ -15,6 +15,7 @@ public class UserGroupController {
     private UserGroupRepository userGroupRepository;
 
     /**
+     * Gets all user groups in the management system
      * @return
      */
     @GetMapping
@@ -23,8 +24,9 @@ public class UserGroupController {
     }
 
     /**
+     * Post request that takes a UserGroup and adds them to the system
      * @param userGroup
-     * @return
+     * @return User
      */
     @PostMapping
     public UserGroup addUserGroup(@RequestBody UserGroup userGroup) {
@@ -32,6 +34,7 @@ public class UserGroupController {
     }
 
     /**
+     * Delete request that deletes a user by given ID
      * @param id
      */
     @DeleteMapping("/{id}")
@@ -40,16 +43,28 @@ public class UserGroupController {
         userGroupRepository.deleteById(id);
     }
 
+    /**
+     * Post request that will add user to a given group
+     * @param group_id
+     * @param user
+     * @return
+     */
     @PostMapping("/{group_id}")
     public Object addUserToUserGroup(@PathVariable Integer group_id, @RequestBody User user) {
         Optional<UserGroup> userGroup = userGroupRepository.findById(group_id);
         if (userGroup.isPresent()){
             UserGroup temp = userGroup.get();
             temp.getUsers().add(user);
-            return userGroupRepository.save(userGroup.get());
+            return userGroupRepository.save(temp);
         }
         return userGroup;
     }
+
+    /**
+     * Delete request that deletes a user from a given group
+     * @param groupId
+     * @param userId
+     */
     @DeleteMapping("/{groupId}/{userId}")
     public void deleteUserFromUserGroup(@PathVariable Integer groupId, @PathVariable Integer userId){
         userGroupRepository.deleteUserFromUserGroup(userId, groupId);
